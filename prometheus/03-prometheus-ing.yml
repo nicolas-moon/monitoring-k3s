@@ -16,4 +16,4 @@ spec:
           service:
             name: prometheus
             port:
-              number: 3000
+              number: 9090
