@@ -4,6 +4,7 @@ metadata:
   name: prometheus-ing
   namespace: monitoring
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
@@ -17,3 +18,7 @@ spec:
             name: prometheus
             port:
               number: 9090
+  tls:
+  - hosts:
+    - prometheus.nickmoon.rocks # Change by your domain
+    secretName: prometheus-nickmoon-rocks-tls

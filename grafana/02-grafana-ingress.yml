@@ -4,6 +4,7 @@ metadata:
   name: grafana-ing
   namespace: monitoring
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
@@ -17,3 +18,7 @@ spec:
             name: grafana
             port:
               number: 3000
+  tls:
+  - hosts:
+    - grafana.nickmoon.rocks # Change by your domain
+    secretName: grafana-nickmoon-rocks-tls
